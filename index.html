@@ -80,20 +80,14 @@ button:hover{
 
 <script>
 function login(){
-    let user = document.getElementById("username").value.trim();
-    let pass = document.getElementById("password").value.trim();
+    localStorage.setItem("login", "true");
+    window.location.href = "home.html";
+}
 
-    if(user !== "" && pass !== ""){
-        localStorage.setItem("login", "true");
-        window.location.href="home.html";
-    } else {
-        document.getElementById("error").innerText="Harap isi dulu!";
-    }
-}
-}
 </script>
 
 </body>
 
 </html>
+
 
