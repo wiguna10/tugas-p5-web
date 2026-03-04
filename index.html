@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:Arial, sans-serif;
+  background: linear-gradient(135deg,#667eea,#764ba2);
+  overflow:hidden;
+}
+
+.login-box{
+  background:white;
+  padding:40px;
+  width:300px;
+  border-radius:15px;
+  box-shadow:0 15px 30px rgba(0,0,0,0.2);
+  text-align:center;
+  animation:fadeIn 1s ease;
+}
+
+.login-box h2{
+  margin-bottom:20px;
+}
+
+input{
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+  border-radius:8px;
+  border:1px solid #ccc;
+  transition:0.3s;
+}
+
+input:focus{
+  border-color:#667eea;
+  transform:scale(1.05);
+}
+
+button{
+  width:100%;
+  padding:10px;
+  background:#667eea;
+  color:white;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  background:#5a67d8;
+  transform:scale(1.1);
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(-20px);}
+  to{opacity:1; transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-box">
+  <h2>Login </h2>
+  <input type="text" id="username" placeholder="Username">
+  <input type="password" id="password" placeholder="Password">
+  <button onclick="login()">Login</button>
+  <p id="error" style="color:red;"></p>
+</div>
+
+<script>
+function login(){
+  let user = document.getElementById("username").value;
+  let pass = document.getElementById("password").value;
+
+  if(user === "lupi" && pass === "123"){
+    localStorage.setItem("login","true");
+    document.body.style.opacity="0";
+    setTimeout(()=>{
+      window.location.href="home.html";
+    },500);
+  }else{
+    document.getElementById("error").innerText="Username atau Password salah!";
+  }
+}
+</script>
+
+</body>
+</html>
