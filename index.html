@@ -80,20 +80,21 @@ button:hover{
 
 <script>
 function login(){
-  let user = document.getElementById("username").value;
-  let pass = document.getElementById("password").value;
+    let user = document.getElementById("username").value.trim().toLowerCase();
+    let pass = document.getElementById("password").value.trim();
 
-  if(user === "lupi" && pass === "123"){
-    localStorage.setItem("login","true");
-    document.body.style.opacity="0";
-    setTimeout(()=>{
-      window.location.href="home.html";
-    },500);
-  }else{
-    document.getElementById("error").innerText="Username atau Password salah!";
-  }
+    if(user === "lupi" && pass === "123"){
+        localStorage.setItem("login", "true");
+        document.body.style.opacity="0";
+        setTimeout(()=>{
+            window.location.href="home.html";
+        },500);
+    }else{
+        document.getElementById("error").innerText="Username atau Password salah!";
+    }
 }
 </script>
 
 </body>
+
 </html>
